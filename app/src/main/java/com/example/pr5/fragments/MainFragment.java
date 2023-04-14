@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.pr5.R;
 
@@ -30,10 +31,16 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button bF1 = view.findViewById(R.id.buttonF1);
         Button bF2 = view.findViewById(R.id.buttonF2);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("example", "exe");
+
+
         bF1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_fragment1);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_fragment1,bundle);
+
             }
         });
         bF2.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +49,8 @@ public class MainFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_fragment2);
             }
         });
+
+
 
 
     }
